@@ -1,12 +1,15 @@
 import getSongs from "@/action/getSongs";
+import getSongsByUserId from "@/action/getSongsByUserId";
 import Header from "@/components/Header";
+import Library from "@/components/Library";
 import ListItem from "@/components/ListItem";
 import PageContent from "@/components/PageContent";
 
 export const revalidate = 0
 
 const Home = async () => {
-  const songs = await  getSongs();
+  const songs = await getSongs();
+  const userSongs = await getSongsByUserId()
 
   return (
     <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
@@ -14,9 +17,14 @@ const Home = async () => {
         <div className="mb-2">
           <h1 className="text-white text-3xl font-semibold">Welcome back</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 mt-4">
-            
-              <ListItem image="/images/liked.png" name="Liked Song" href="liked" />
-              
+
+            <ListItem image="/images/liked.png" name="Liked Song" href="liked" />
+
+            <div className="md:hidden bg-neutral-900 rounded-lg max-h-80 overflow-y-scroll w-full">
+              <div className='Overflow-y-auto h-full' >
+                <Library songs={userSongs} />
+              </div>
+            </div>
           </div>
         </div>
       </Header>

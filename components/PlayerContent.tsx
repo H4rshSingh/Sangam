@@ -101,10 +101,10 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
             <div className="flex w-full justify-start">
-                <div className="flex items-center gap-x-4">
+                <div className="flex truncate items-center gap-x-4">
                     <MediaItem data={song} />
-                    <LikeButton songId={song.id} />
                 </div>
+                    <LikeButton songId={song.id} />
             </div>
 
             <div
