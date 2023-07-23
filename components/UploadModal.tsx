@@ -7,7 +7,6 @@ import { toast } from "react-hot-toast";
 import { useUser } from "@/hooks/useUser";
 import uniqid from 'uniqid';
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { set } from "mongoose";
 import { useRouter } from "next/navigation";
 
 
